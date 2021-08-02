@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>  
+<body>
+
+ <form method="post" action="url" onsubmit="formSubmit(event)">
+     <input id="nameInput" type="text" name="name" onchange="inputChange(event)">
+     <input type="text" name="age">
+     <input type="submit" value="submit" >
+
+ </form>
+</body>
+<script>
+
+    let formSubmit = (e) => { 
+
+        e.preventDefault()
+        console.log("submitted")
+    }
+
+    let inputChange =(e) => {
+        e.preventDefault()
+       console.log(document.getElementById("nameInput").value)
+       console.log(document.querySelector("#nameInput"))
+       //call save to backend
+
+    }
+
+
+    const name = 'Kevin'
+    let string = "New Kevin"
+    let character = 'c'
+    let integer = 281
+    let objects = {
+        "Name": "Kevin",
+        "Age": 25
+    }
+    let floating = 28.10
+    let boolean = true
+    let array = ["Kevin", "John"]
+    let age = 5
+    if (age > 10) {
+        console.log("You are older than 10")
+    }
+    else {
+        console.log("You are younger than 10")
+    }
+
+    let mark = 45
+    // 0-40 D 40-50 C 50-60 B 60  above A
+    if (mark > 60) {
+        console.log("You got an A")
+    } else if (mark > 50) {
+        console.log("You got a B")
+    } else if (mark > 40) {
+        console.log("You got  a C")
+    } else {
+        console.log("You got a D")
+    }
+    Math.random() // 0-1 0.88881321
+
+
+
+    let today = new Date()
+    console.log(today.getDate())
+    let day = ''
+
+    switch (new Date().getDay()) {
+        case 0:
+            day = "Sunday";
+            break;
+        case 1:
+            day = "Monday";
+            break;
+        case 2:
+            day = "Tuesday";
+            break;
+        case 3:
+            day = "Wednesday";
+            break;
+        case 4:
+            day = "Thursday";
+            break;
+        case 5:
+            day = "Friday";
+            break;
+        case 6:
+            day = "Saturday";
+    }
+    console.log(day)
+
+    //functions 
+    let addition = function (a, b) {
+
+        let sum = a + b
+        return sum
+    }
+
+    let marks = function (mark) {
+        if (mark > 60) {
+            console.log("You got an A")
+        } else if (mark > 50) {
+            console.log("You got a B")
+        } else if (mark > 40) {
+            console.log("You got  a C")
+        } else {
+            console.log("You got a D")
+        }
+    }
+    console.log(addition(2, 3))
+    let newMark = 40
+    marks(newMark)
+
+    let multiplication = ( a, b) => {
+            return a * b
+    } 
+    let division = (a, b) => a/b;
+   
+    console.log(multiplication(2,3))
+    console.log(division(4,2))
+
+    // class  <classname> {
+    //     //instantiates class
+    //     constructor(){ // equivelent __init__
+
+    //     } 
+
+    // }
+    
+    class Car  {
+        constructor(name="audi", year=2016, make='Tesla'){
+            this.name = name;
+            this.modelyear = year;
+            this.make = make;
+        }
+        current_age(){
+            let date = new Date()
+            return date.getFullYear() - this.modelyear
+        }
+        age(yearto){
+            return yearto - this.modelyear
+
+        }
+        is_clasic(){
+             this.current_age() > 100 ? console.log('is classic') : console.log('is not clasic')
+        }
+    }
+
+    let golf =new Car('golf', 2018);
+    let audi =new Car('audi', 1900, "VW");
+    let defaultCar = new Car();
+    console.log(golf)
+    console.log(audi)
+    console.log(defaultCar)
+
+    console.log(golf.current_age())
+    console.log(`The audi is  ${audi.current_age()} years old`)
+    console.log(`The audi was  ${audi.age(2000)} years old in ${2000}`)
+    // print(f"the audi age is  {audi.curentage()}")
+
+    //ternary operator
+    //condition ? what to do is condition is true : what to do if condition is false
+    let isLoggenIn = false
+    isLoggenIn ? console.log('User is logged in'): console.log('User is logged out')
+
+    golf.is_clasic()
+    audi.is_clasic()
+
+
+    let ages = [10, 20, 13, 6, 80, 7]
+
+    //loops 
+
+    // for(variable ; condition ; increase ){
+    //     code executed
+    // }
+                    // false
+    for(let i =0; i <= 5; i++){
+        console.log(i)
+    }
+
+    //for in
+
+    // for (key<vairable> in object){
+    //     code 
+    // }
+
+    let person = { firstname : "John", secondName: "Doe", age: 30 }
+    // console.log(person.firstname)
+    // console.log(person['firstname'])
+
+
+    for( attr in person){
+        console.log(`The persons ${attr} is ${person[attr]}`)
+    }
+
+    // for of
+
+    // for (vairable of iterable){
+    //     code
+    // }
+    for(age of ages){
+        console.log(age)
+    }
+
+    //while
+    
+    // while(condition){
+    //     code
+    // }
+
+    let i = 0;
+    console.log('while starts here')
+
+    while(i > 10){
+        console.log(i);
+        i++;
+    }
+    i = 0;
+    //do while
+    // do{
+    //     code
+    // }while(i < 10)
+    console.log('Do while starts here')
+    do{
+        console.log(i);
+        i++;
+
+    }while(i > 10)
+
+    for(let j = 0; j < 100; j++ ){
+        console.log(j)
+        if(j >=59)
+        break
+    }
+
+    // while(True){
+    //     readuserinput()
+    //     if(userInputValid)
+    //     break
+
+    // }
+
+
+    //comparisons
+    //== check if the values are equal
+    //=== check both the value and the type
+    //<= less or equal to
+    //>= greater or equal to
+    // > greater and < less than
+    // && bitwise and return true if both are true  true && true  = true  false && true = true
+    // || bitwise or return true if atleast one is true 
+
+    //forEach
+    console.log('for each starts here')
+
+    // let newFunction = ('parameters') => {
+
+    // }
+
+    ages.forEach( (age) => {
+        console.log(age)
+    })
+    let newAges = []
+    //map   map one array to another 
+   newAges =  ages.map((age, index ) => {
+        return age * 10
+    })
+    // console.log(newAges)
+
+    // <div>
+    //     ages.map((age, index) => {
+    //         return <p> {age} </p>
+    //     })
+    //     </div>
+
+    //filter  loop through the array and remove some items
+    const  result = ages.filter((age) => {
+        return age ===  10 || age === 80
+
+    })
+    console.log(result)
+
+    //reduce reduces elements to single element
+    // let ages = [10, 20, 13, 6, 80, 7]
+
+    const sum = ages.reduce((accumalator, currentValue) => {
+        console.log(accumalator)
+        return accumalator + currentValue
+    })
+    console.log(sum)
+    console.log("Product starts here")
+    const prod = ages.reduce((accumalator, currentValue) => {
+        console.log(accumalator)
+        return accumalator * currentValue
+    })
+    console.log(prod)
+
+
+
+</script>
+
+</html>
+
+<!-- 
+    variables
+    conditionals
+    functions
+    fetch
+    soap APIS
+    RESTful APIS
+
+    classes
+    ternary operator
+    functions / higher order functions
+    debug
+    
+ -->
